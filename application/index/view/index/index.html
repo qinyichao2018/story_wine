@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>a</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1>欢迎来到——故事与酒</h1>
+<h3>你有故事我有酒，倾听你的心声</h3>
+<p>请登录！没有帐号？请<a href="{:url('register')}">注册</a>!</p>
+<form method="post" action="{:url('login_do')}" class="form-inline">
+    <div class="form-group">
+        <label for="username1"></label>
+        <input placeholder="用户名" id="username1" class="form-control" type="text" name="username" {notempty
+               name="post_data" }{notempty name="post_data.username" } value="{$post_data.username}" {/notempty}{/notempty}>
+    </div>
+    <div class="form-group">
+        <label for="password1"></label>
+        <input class="form-control" placeholder="密码" id="password1" type="password" name="password" {notempty
+               name="post_data.password" } value="{$post_data.password}" {/notempty}>
+    </div>
+    <button type="submit" class="btn btn-default">登录</button>
+    <p style="color: #880000">{$error|default=""}</p>
+
+</form>
+
+</body>
+</html>

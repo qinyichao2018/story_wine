@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>个人主页</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h1>主页</h1>
+<hr>
+欢迎您回来!<br>
+<P style="color: green">{$title|default="初饮者"}</p>
+<p style="color: darkorange">{$username|default=""}</p><img width="40" src="/粮票.jpg" alt="">x{$aa|default="0"}<br><br>
+<a href="{:url('tell_stories')}">讲故事</a> <a href="{:url('listen_stories')}">听故事</a> <a href="{:url('history')}">过往浏览</a><br><br>
+<a href="{:url('wine_friends')}">酒友</a> <a href="{:url('recharge')}">充值粮票</a>
+<a href="{:url('personal_information')}">个人信息</a> <br><br><a href="{:url('index')}">退出登录</a><br><br>
+<hr>
+</body>
+</html>

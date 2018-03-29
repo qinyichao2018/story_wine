@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<H4>分享你的精彩故事吧！</H4><a href="{:url('personal')}">返回主页</a>
+<hr>
+<br><br>
+<form method="post" action="{:url('stories_wall2')}">
+    <label></label>
+    <input type="text" name="t_id" placeholder="故事名...">
+    <button class="btn btn-default" type="submit">搜索</button>
+    <br><br>
+</form>
+<a href="{:url('stories_wall')}">离线故事集</a><br><br>
+<a href="{:url('collection_story')}">我的收藏</a><br><br>
+<a href="{:url('live_story')}">看看直播间</a><br><br>
+</body>
+</html>

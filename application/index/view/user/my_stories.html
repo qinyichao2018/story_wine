@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<a href={:url('personal')}>主页</a>
+<div class="main-nav-tabs">
+    <ul class="nav nav-pills" id="pill-tab" role="tablist"></ul>
+    <a href="{:url('my_stories',array('id1'=>'1'))}">我的故事</a>|
+    <a href="{:url('my_stories',array('id1'=>'2'))}">草稿箱</a>|
+    <hr>
+    {eq name="id" value="1"}
+    文章
+    {/eq}
+    {eq name="id" value="2"}
+    草稿
+    {/eq}
+    {volist name="list" id="vol"}
+    {switch name="id"}
+    {case value="1"}
+    <li>
+        {$vol.article_id} <a href="{:url('stories_wall2',array('t_id'=>$vol.article_id))}"> {$vol.article_title}</a>[{$vol.style}]-------{$vol.created_at}
+        <a href={:url('del',array('id'=>$vol.article_id,'id1'=>'1'))}>删除</a>
+        <a href={:url('write_story',array('id'=>$vol.article_id,'id1'=>'1','select_name'=>$vol.style,'t_id'=>$vol.article_id))}>编辑</a>
+    </li>
+    {/case}
+    {case value="2"}
+    <li>
+        {$vol.draft_id} <a href="{:url('stories_wall2',array('t_id'=>$vol.draft_id))}"> {$vol.draft_title}</a>[{$vol.style}]-------{$vol.created_at}
+        <a href={:url('del',array('id'=>$vol.draft_id,'id1'=>'2'))}>删除</a>
+        <a href={:url('write_story',array('id1'=>'2','select_name'=>$vol.style,'t_id'=>$vol.draft_id))}>编辑</a>
+    </li>
+    {/case}
+    {/switch}
+    {/volist}
+    {$page}
+</div>
+</body>
+</html>

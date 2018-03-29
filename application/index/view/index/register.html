@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css"
+          integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- 可选的 Bootstrap 主题文件（一般不用引入） -->
+    <link rel="stylesheet" href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"
+          integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- 最新的 Bootstrap 核心 JavaScript 文件 -->
+    <script src="https://cdn.bootcss.com/bootstrap/3.3.7/js/bootstrap.min.js"
+            integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa"
+            crossorigin="anonymous"></script>
+
+</head>
+<body>
+<h4>请输入注册信息！</h4><a href="{:url('index')}">返回</a>
+<hr>
+<form method="post" action="{:url('register_do')}" class="form-inline">
+    <div class="form-group">
+        <label for="username2"></label>
+        <input class="form-control" placeholder="用户名" id="username2" type="text" name="username" {notempty
+               name="$post_data" } {notempty name="$post_data.username" } value="{$post_data.username}" {/notempty}{/notempty}
+        >
+    </div>
+    <div class="form-group">
+        <label for="password2"></label>
+        <input class="form-control" placeholder="密码" id="password2" type="password" name="password" {notempty
+               name="$post_data.password" } value="{$post_data.password}" {/notempty}>
+    </div>
+    <button type="submit" class="btn btn-default">注册</button>
+    <p style="color: #880000">{$error|default=''}</p>
+</form>
+</body>
+</html>
